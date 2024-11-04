@@ -47,13 +47,13 @@ const initAddTransactionButton = (dataArray, renderTransactions) => {
 
     const note = noteInput.value.trim();
     const date = new Date(dateInput.value);
-    const amount = dateInput.value.trim();
+    const amountValue = dateInput.value.trim();
 
     if (!note) {
       setInputError(noteInput);
       return;
     }
-    if (!amount || isNaN(parseInt(amount))) {
+    if (!amountValue || isNaN(parseInt(amountValue))) {
       setInputError(amountInput);
       return;
     }
@@ -62,7 +62,7 @@ const initAddTransactionButton = (dataArray, renderTransactions) => {
       return;
     }
     const formattedDate = date.toLocaleDateString("en-US");
-
+    let amount = parseInt(amountValue);
     if (isExpense) amount *= -1;
 
     noteInput.value = "";
