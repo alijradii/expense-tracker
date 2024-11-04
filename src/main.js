@@ -34,8 +34,25 @@ const loadTransactions = () => {
   });
 };
 
+const initFilterPopUp = () => {
+  const popUp = document.getElementById("popup-overlay");
+  const popupContent = document.getElementById("popup-content");
+
+  popUp.addEventListener("click", () => {
+    if (event.target === filterPopup) {
+      popUp.classList.toggle("hidden");
+    }
+  });
+
+  const closePopUpButton = document.getElementById("close-popup-button");
+  closePopUpButton.addEventListener("click", () =>
+    popUp.classList.toggle("hidden"),
+  );
+};
+
 const renderData = () => {
   initActionButtons(transactions, loadTransactions);
+  initFilterPopUp();
   loadTransactions();
 };
 

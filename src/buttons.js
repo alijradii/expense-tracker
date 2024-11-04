@@ -75,8 +75,19 @@ const initAddTransactionButton = (dataArray, loadTransactions) => {
   });
 };
 
+const initFilterButton = () => {
+  const button = document.getElementById("filter-button");
+
+  button.addEventListener("click", () => {
+    const popupOverlay = document.getElementById("popup-overlay");
+
+    popupOverlay.classList.toggle("hidden");
+  });
+};
+
 const initActionButtons = (dataArray, loadTransactions) => {
   initRemoveButton();
+  initFilterButton();
   initToggleButtons();
   initAddTransactionButton(dataArray, loadTransactions);
 };
