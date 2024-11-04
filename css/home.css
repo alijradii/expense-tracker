@@ -133,6 +133,7 @@ section {
 }
 
 .transaction-creator input {
+  border: 1px solid rgba(18, 18, 18, 0.5);
   font-size: 14px;
   padding: 3px;
 }
@@ -169,8 +170,11 @@ section {
 }
 
 .transaction-button {
+  background-color: white;
   padding: 3px;
   margin: auto;
+  border-radius: 5px;
+  border: none;
 }
 
 .transaction-button.hidden {
@@ -185,4 +189,8 @@ section {
 
 .clicked {
   background-color: #a8a8a8 !important;
+}
+
+.input-error {
+  border: 1px solid red !important;
 }

@@ -12,6 +12,7 @@
     <link href="css/colors.css" rel="stylesheet" />
     <link href="css/utils.css" rel="stylesheet" />
     <link href="css/home.css" rel="stylesheet" />
+    <link href="css/filter-popup.css" rel="stylesheet" />
   </head>
   <body>
     <header class="secondary-color">
@@ -35,14 +36,22 @@
             <button id="income-button">Income</button>
           </div>
 
-          <input type="text" placeholder="Note" class="transaction-note" />
-          <input type="date" class="transaction-date" />
+          <input
+            type="text"
+            placeholder="Note"
+            class="transaction-note"
+            id="transaction-note"
+          />
+          <input type="date" class="transaction-date" id="transaction-date" />
           <input
             type="number"
             placeholder="Amount"
             class="transaction-amount"
+            id="transaction-amount"
           />
-          <button class="transaction-btn">Add Transaction</button>
+          <button class="add-transaction-button" id="add-transaction-button">
+            Add Transaction
+          </button>
         </div>
       </div>
       <div class="transactions-container grow2">
@@ -67,7 +76,54 @@
       </div>
     </section>
 
+    <div id="filterPopup" class="popup-overlay hidden" id="popup-overlay">
+      <div class="popup-content">
+        <span
+          class="close-btn"
+          onclick="document.getElementById('filterPopup').style.display='none'"
+          >&times;</span
+        >
+        <h2>Filter Transactions</h2>
+
+        <label for="filterDate">Date:</label>
+        <input type="date" id="filterDate" name="filterDate" />
+
+        <label for="filterNote">Note:</label>
+        <input
+          type="text"
+          id="filterNote"
+          name="filterNote"
+          placeholder="Enter note"
+        />
+
+        <label for="minAmount">Min Amount:</label>
+        <input
+          type="number"
+          id="minAmount"
+          name="minAmount"
+          placeholder="Min"
+        />
+
+        <label for="maxAmount">Max Amount:</label>
+        <input
+          type="number"
+          id="maxAmount"
+          name="maxAmount"
+          placeholder="Max"
+        />
+
+        <label for="transactionType">Type:</label>
+        <select id="transactionType" name="transactionType">
+          <option value="">All</option>
+          <option value="income">Income</option>
+          <option value="expense">Expense</option>
+        </select>
+
+        <button class="apply-btn">Apply Filters</button>
+      </div>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="src/buttons.js"></script>
     <script src="src/main.js"></script>
   </body>
 </html>
