@@ -1,3 +1,5 @@
+let lastCreatedId = parseInt(localStorage.getItem("lastId") || "0");
+
 const initRemoveButton = () => {
   const removeElementButton = document.getElementById("remove-button");
 
@@ -39,6 +41,9 @@ const setInputError = (input) => {
 };
 
 const initAddTransactionButton = (dataArray, renderTransactions) => {
+  lastCreatedId += 1;
+  localStorage.setItem("lastId", lastCreatedId);
+
   const button = document.getElementById("add-transaction-button");
   button.addEventListener("click", () => {
     const noteInput = document.getElementById("transaction-note");
@@ -69,11 +74,13 @@ const initAddTransactionButton = (dataArray, renderTransactions) => {
     dateInput.value = "";
     amountInput.value = "";
     dataArray.push({
+      id: id,
       note: note,
       date: formattedDate,
       amount: parseInt(amount),
     });
 
+    localStorage.setItem("transactions", JSON.stringify(transactions));
     renderTransactions();
   });
 };

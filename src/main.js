@@ -4,19 +4,16 @@ const transactions = cachedData ? JSON.parse(cachedData) : [];
 
 let removeActive = false;
 
-const updateTransactions = () => {
-  localStorage.setItem("transactions", JSON.stringify(transactions));
-};
+const updateTransactions = () => {};
 
-const renderTransactions = () => {
-  updateTransactions();
+const renderTransactions = (list) => {
   const transactionsList = document.getElementById("transactions-list");
   transactionsList.innerHTML = "";
 
-  transactions.forEach((transaction, index) => {
+  list.forEach((transaction, index) => {
     const element = document.createElement("div");
     element.classList.add("transaction");
-    element.setAttribute("id", `transaction-${index}`);
+    element.setAttribute("id", `transaction['id']`);
     element.innerHTML = `
       <h3 class="grow2">${transaction["note"]}</h3>
       <h3 class="grow1">${transaction["amount"]}</h3>
@@ -31,7 +28,10 @@ const renderTransactions = () => {
 
     button.innerHTML = `<i class="fa fa-trash text-color-black"></i>`;
     button.addEventListener("click", () => {
-      transactions.splice(index, 1);
+      transactions = transactions.filter(
+        (transaction) => transaction.id !== id,
+      );
+      localStorage.setItem("transactions", JSON.stringify(transactions));
       renderTransactions();
     });
 
@@ -46,7 +46,7 @@ const initFilterPopUp = () => {
   const popupContent = document.getElementById("popup-content");
 
   popUp.addEventListener("click", () => {
-    if (event.target === filterPopup) {
+    if (event.target === popUp) {
       popUp.classList.toggle("hidden");
     }
   });
@@ -60,7 +60,8 @@ const initFilterPopUp = () => {
 const renderData = () => {
   initActionButtons(transactions, renderTransactions);
   initFilterPopUp();
-  renderTransactions();
+  renderTransactions(transactions);
+  initFilterCard(transactions, renderTransactions);
 };
 
 document.addEventListener("DOMContentLoaded", () => {
