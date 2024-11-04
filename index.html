@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    />
+
+    <title></title>
+    <link href="css/colors.css" rel="stylesheet" />
+    <link href="css/utils.css" rel="stylesheet" />
+    <link href="css/home.css" rel="stylesheet" />
+  </head>
+  <body>
+    <header class="secondary-color">
+      <div class="header-text">
+        <h3>Total Balance</h3>
+        <h1>$320,450</h1>
+      </div>
+      <div>
+        <button class="primary-color">
+          <i class="fa fa-plus text-color-white"></i> Add
+        </button>
+        <button class="accent-color">
+          <i class="fa fa-trash text-color-white"></i> Clear
+        </button>
+      </div>
+    </header>
+
+    <section>
+      <div class="transactions-container">
+        <div class="chart-container" id="chart-container">
+          <canvas id="budgetChart"></canvas>
+        </div>
+
+        <div class="transaction-creator">
+          <h3>Add Transaction</h3>
+          <div class="toggle-container">
+            <button class="active">Expense</button>
+            <button>Income</button>
+          </div>
+
+          <input type="text" placeholder="Note" class="transaction-note" />
+          <input type="date" class="transaction-date" />
+          <input
+            type="number"
+            placeholder="Amount"
+            class="transaction-amount"
+          />
+          <button class="transaction-btn">Add Transaction</button>
+        </div>
+      </div>
+      <div class="transactions-container">
+        <div class="transactions-header">
+          <h3>Transactions</h3>
+          <div class="flex align-stretch gap10">
+            <button>
+              <i class="fa fa-filter"></i>
+              Filter
+            </button>
+            <button>
+              <i class="fa-solid fa-sort"></i>
+              Sort
+            </button>
+            <button type="">
+              <i class="fa fa-ellipsis"></i>
+            </button>
+          </div>
+        </div>
+        <div class="transaction">
+          <h3 class="grow2">Salary</h3>
+          <h3 class="grow1">300,300$</h3>
+          <h3 class="grow1">17/5/2003</h3>
+        </div>
+        <div class="transaction">
+          <h3 class="grow2">Batatatata</h3>
+          <h3 class="grow1">300,00300$</h3>
+          <h3 class="grow1">17/5/2003</h3>
+        </div>
+        <div class="transaction">
+          <h3 class="grow2">Salary</h3>
+          <h3 class="grow1">300,300$</h3>
+          <h3 class="grow1">17/5/2003</h3>
+        </div>
+      </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="src/main.js"></script>
+  </body>
+</html>
