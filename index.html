@@ -31,8 +31,8 @@
         <div class="transaction-creator">
           <h3>Add Transaction</h3>
           <div class="toggle-container">
-            <button class="active">Expense</button>
-            <button>Income</button>
+            <button id="expense-button" class="active">Expense</button>
+            <button id="income-button">Income</button>
           </div>
 
           <input type="text" placeholder="Note" class="transaction-note" />
@@ -45,23 +45,25 @@
           <button class="transaction-btn">Add Transaction</button>
         </div>
       </div>
-      <div class="transactions-container grow2" id="transactions-container">
+      <div class="transactions-container grow2">
         <div class="transactions-header">
           <h3>Transactions</h3>
           <div class="flex align-stretch gap10">
             <button>
-              <i class="fa fa-filter"></i>
+              <i class="fa fa-filter" id="filter-button"></i>
               Filter
             </button>
             <button>
-              <i class="fa-solid fa-sort"></i>
+              <i class="fa-solid fa-sort" id="sort-button"></i>
               Sort
             </button>
-            <button type="">
-              <i class="fa fa-ellipsis"></i>
+            <button id="remove-button">
+              <i class="fa fa-x"></i>
             </button>
           </div>
         </div>
+
+        <div class="transactions-list" id="transactions-list"></div>
       </div>
     </section>
 

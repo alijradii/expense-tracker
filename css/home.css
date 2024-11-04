@@ -176,3 +176,13 @@ section {
 .transaction-button.hidden {
   visibility: hidden;
 }
+
+.transactions-list {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.clicked {
+  background-color: #a8a8a8 !important;
+}
