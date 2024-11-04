@@ -38,7 +38,7 @@ const setInputError = (input) => {
   }, 2000);
 };
 
-const initAddTransactionButton = (dataArray, loadTransactions) => {
+const initAddTransactionButton = (dataArray, renderTransactions) => {
   const button = document.getElementById("add-transaction-button");
   button.addEventListener("click", () => {
     const noteInput = document.getElementById("transaction-note");
@@ -65,13 +65,16 @@ const initAddTransactionButton = (dataArray, loadTransactions) => {
 
     if (isExpense) amount *= -1;
 
+    noteInput.value = "";
+    dateInput.value = "";
+    amountInput.value = "";
     dataArray.push({
       note: note,
       date: formattedDate,
       amount: parseInt(amount),
     });
 
-    loadTransactions();
+    renderTransactions();
   });
 };
 
@@ -85,9 +88,9 @@ const initFilterButton = () => {
   });
 };
 
-const initActionButtons = (dataArray, loadTransactions) => {
+const initActionButtons = (dataArray, renderTransactions) => {
   initRemoveButton();
   initFilterButton();
   initToggleButtons();
-  initAddTransactionButton(dataArray, loadTransactions);
+  initAddTransactionButton(dataArray, renderTransactions);
 };
