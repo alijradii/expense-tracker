@@ -52,7 +52,7 @@ const initAddTransactionButton = (dataArray, renderTransactions) => {
 
     const note = noteInput.value.trim();
     const date = new Date(dateInput.value);
-    const amountValue = dateInput.value.trim();
+    const amountValue = amountInput.value.trim();
 
     if (!note) {
       setInputError(noteInput);
@@ -74,14 +74,14 @@ const initAddTransactionButton = (dataArray, renderTransactions) => {
     dateInput.value = "";
     amountInput.value = "";
     dataArray.push({
-      id: id,
+      id: lastCreatedId,
       note: note,
       date: formattedDate,
       amount: parseInt(amount),
     });
 
     localStorage.setItem("transactions", JSON.stringify(transactions));
-    renderTransactions();
+    renderTransactions(transactions);
   });
 };
 

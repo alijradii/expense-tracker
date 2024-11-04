@@ -1,6 +1,6 @@
 const cachedData = localStorage.getItem("transactions");
 
-const transactions = cachedData ? JSON.parse(cachedData) : [];
+let transactions = cachedData ? JSON.parse(cachedData) : [];
 
 let removeActive = false;
 
@@ -28,11 +28,9 @@ const renderTransactions = (list) => {
 
     button.innerHTML = `<i class="fa fa-trash text-color-black"></i>`;
     button.addEventListener("click", () => {
-      transactions = transactions.filter(
-        (transaction) => transaction.id !== id,
-      );
+      transactions = transactions.filter((t) => transaction.id !== t.id);
       localStorage.setItem("transactions", JSON.stringify(transactions));
-      renderTransactions();
+      renderTransactions(transactions);
     });
 
     element.appendChild(button);
