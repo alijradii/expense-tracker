@@ -1,8 +1,15 @@
-const transactions = [];
+const cachedData = localStorage.getItem("transactions");
+
+const transactions = cachedData ? JSON.parse(cachedData) : [];
 
 let removeActive = false;
 
-const loadTransactions = () => {
+const updateTransactions = () => {
+  localStorage.setItem("transactions", JSON.stringify(transactions));
+};
+
+const renderTransactions = () => {
+  updateTransactions();
   const transactionsList = document.getElementById("transactions-list");
   transactionsList.innerHTML = "";
 
@@ -25,7 +32,7 @@ const loadTransactions = () => {
     button.innerHTML = `<i class="fa fa-trash text-color-black"></i>`;
     button.addEventListener("click", () => {
       transactions.splice(index, 1);
-      loadTransactions(true);
+      renderTransactions();
     });
 
     element.appendChild(button);
@@ -51,9 +58,9 @@ const initFilterPopUp = () => {
 };
 
 const renderData = () => {
-  initActionButtons(transactions, loadTransactions);
+  initActionButtons(transactions, renderTransactions);
   initFilterPopUp();
-  loadTransactions();
+  renderTransactions();
 };
 
 document.addEventListener("DOMContentLoaded", () => {
