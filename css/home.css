@@ -73,7 +73,6 @@ canvas {
   flex-direction: column;
   border: 1px solid rgb(18, 18, 18);
   padding: 20px;
-  flex: 1 1 0;
 }
 
 .separator {
@@ -167,4 +166,13 @@ section {
 .transaction h3 {
   padding: 10px;
   border-top: 1px solid rgba(18, 18, 18, 0.5);
+}
+
+.transaction-button {
+  padding: 3px;
+  margin: auto;
+}
+
+.transaction-button.hidden {
+  visibility: hidden;
 }
