@@ -16,7 +16,7 @@ const initRemoveButton = () => {
   });
 };
 
-let isExpense = false;
+let isExpense = true;
 const initToggleButtons = () => {
   const expenseButton = document.getElementById("expense-button");
   const incomeButton = document.getElementById("income-button");
