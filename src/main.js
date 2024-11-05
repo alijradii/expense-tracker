@@ -4,10 +4,19 @@ let transactions = cachedData ? JSON.parse(cachedData) : [];
 
 let removeActive = false;
 
-const updateTransactions = () => {};
+const updateTotalBudget = () => {
+  let total = 0;
+  transactions.forEach((t) => {
+    total += t.amount;
+  });
+
+  const budgetDisplay = document.getElementById("total-budget");
+  budgetDisplay.innerText = total;
+};
 
 const renderTransactions = (list) => {
   const transactionsList = document.getElementById("transactions-list");
+  updateTotalBudget();
   transactionsList.innerHTML = "";
 
   list.forEach((transaction, index) => {
