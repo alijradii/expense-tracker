@@ -22,7 +22,7 @@ const renderTransactions = (list) => {
   list.forEach((transaction, index) => {
     const element = document.createElement("div");
     element.classList.add("transaction");
-    element.setAttribute("id", `transaction['id']`);
+    element.setAttribute("id", `transaction-${"id"}`);
     element.innerHTML = `
       <h3 class="grow2">${transaction["note"]}</h3>
       <h3 class="grow1">${transaction["amount"]}</h3>

@@ -21,11 +21,11 @@ const filterTransactions = (filters) => {
       return false;
     }
 
-    if (filters.minAmount && transaction.amount < filters.minAmount) {
+    if (filters.minAmount && Math.abs(transaction.amount) < filters.minAmount) {
       return false;
     }
 
-    if (filters.maxAmount && transaction.amount > filters.maxAmount) {
+    if (filters.maxAmount && Math.abs(transaction.amount) > filters.maxAmount) {
       return false;
     }
 
